@@ -1,5 +1,5 @@
 function [images] = loadImages()
-    path = '..\Images\Set3\';
+    path = '..\Images\Set2\';
     files = dir(path);
     files = files(1:end);
 

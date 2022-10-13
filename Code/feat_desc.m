@@ -4,8 +4,8 @@ function [descs] = feat_desc(img, x, y)
     % descs = 64xn matrix representing the descriptors of corners
     % with column i being the 64 dimentions of the descriptor  computed at location (xi, yi) in im
     tic
-    DESC_SIZE = 40; % desc size must be divided by 8
-    SIGMA = 1;
+    DESC_SIZE = 64; % desc size must be divided by 8
+    SIGMA = 0.5;
     H = size(img, 1);
     W = size(img, 2);
     N = numel(x);
