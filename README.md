@@ -1,5 +1,5 @@
 # Panorama Stitching
-![Paranoma Stitching](Images\result.jpg)
+![Paranoma Stitching](https://github.com/Jefflai0315/Paranoma_stitching/blob/main/Images/result.jpg)
 
 ## Step 1 : Detect Corners
 ``` matlab
