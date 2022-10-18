@@ -1,4 +1,6 @@
 function [corners] = detectCorners (img)
-    i_grey = rgb2gray(img);
-    corners= cornermetric(i_grey,'Harris');
+    if size(img, 3) > 1
+        img = rgb2gray(img);
+    end
+    corners = cornermetric(img, 'Harris');
 end
