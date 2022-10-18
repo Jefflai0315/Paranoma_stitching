@@ -1,6 +1,13 @@
 # Panorama Stitching
 ![Paranoma Stitching](https://github.com/Jefflai0315/Paranoma_stitching/blob/main/Images/result.jpg)
 
+## Step 0 : Load the images
+``` matlab 
+images = loadImages(directory);
+``` 
+The function performs [cylindrical projection](https://www.mathworks.com/matlabcentral/fileexchange/96962-image-to-cylindrical-and-spherical-projection-warping) on the images. Then we convert the images to double and normalize them.
+
+___
 ## Step 1 : Detect Corners
 ``` matlab
 corners_i = detectCorners(img_i);

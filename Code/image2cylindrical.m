@@ -1,3 +1,6 @@
+% open source code 
+
+
 function imageCylindrical = image2cylindrical(image, f, k1, k2, k3)
 %%***********************************************************************%
 %*                   Image to cylindrical projection                    *%

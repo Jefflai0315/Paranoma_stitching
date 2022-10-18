@@ -30,7 +30,7 @@ function [pano] = MyPanorama()
         corners_b = detectCorners(img_b);
 
 
-        %% ANMS: use the ANMS function to select 300 corner points from each image.
+        %% ANMS: use the ANMS function to select 350 corner points from each image.
         [i_x, i_y,rmax] = anms(corners_i, 300);
         [b_x, b_y,rmax] = anms(corners_b, 300);
 
@@ -48,7 +48,7 @@ function [pano] = MyPanorama()
 
 
         %% Estimate Homographies: estimate homographies between images. 
-        [H,inliers_ind] = ransac_est_H(matched_i_x, matched_i_y, matched_b_x, matched_b_y,10);
+        [H,inliers_ind] = ransac_est_H(matched_i_x, matched_i_y, matched_b_x, matched_b_y,15);
 
         % show inliers and display the matched image points
         %matched_b_x= matched_b_x(inlier_indices);

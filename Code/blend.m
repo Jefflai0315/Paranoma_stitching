@@ -48,7 +48,7 @@ function [img_b] = blend(img_i,img_b,H)
     y_b = y_b(:); x_b = x_b(:);
     xy = H_inv*[x_b - pad_left, y_b - pad_up, ones(size(x_b,1),1)]';
     x_i = int64(xy(1,:)'./xy(3,:)'); y_i = int64(xy(2,:)'./xy(3,:)');
-
+   
     % Blend img_b and img_i pixels according to dist to boundary
     % Only the coordinates that are possible to map to img_i are considerred.
     indices = x_i > 0 & x_i <= size(img_i, 2) & y_i > 0 & y_i <= size(img_i, 1) & y_b-pad_up > 0 & y_b - pad_up <= size(img_b_dist,1) & x_b - pad_left > 0 & x_b - pad_left <= size(img_b_dist,2);
@@ -56,13 +56,15 @@ function [img_b] = blend(img_i,img_b,H)
     idx_b = (x_b(indices)-pad_left-1)*size(img_b_dist,1) + y_b(indices)-pad_up;
     p = img_i_dist(idx_i)./(img_i_dist(idx_i) + img_b_dist(idx_b));
     p(isnan(p)) = 0;
-    % map rgb channels
+   
+    % map rgb channels`
     img_b((x_b(indices)-1)*size(img_b,1)+(y_b(indices))) = p.*img_i((x_i(indices)-1)*size(img_i,1) + (y_i(indices))) + (1-p).*img_b((x_b(indices)-1)*size(img_b,1) +(y_b(indices)));
     img_b((x_b(indices)-1)*size(img_b,1)+y_b(indices) + size(img_b,1)*size(img_b,2) ) = p.*img_i((x_i(indices)-1)*size(img_i,1) + y_i(indices) + size(img_i,1)*size(img_i,2)) + ... 
     (1-p).*img_b((x_b(indices)-1)*size(img_b,1) + y_b(indices) + size(img_b,1)*size(img_b,2));
     img_b((x_b(indices)-1)*size(img_b,1)+y_b(indices) + size(img_b,1)*size(img_b,2)*2 ) = p.*img_i((x_i(indices)-1)*size(img_i,1) + y_i(indices) + size(img_i,1)*size(img_i,2)*2) + ... 
     (1-p).*img_b((x_b(indices)-1)*size(img_b,1) + y_b(indices) + size(img_b,1)*size(img_b,2)*2);
-
+    
+  
     % if it goes beyond border of img_b, just copy back the pixels from img_i
     indices = x_i > 0 & x_i <= size(img_i, 2) & y_i > 0 & y_i <= size(img_i, 1) & (y_b-pad_up <= 0 | y_b - pad_up > size(img_b_dist,1) | x_b - pad_left <= 0 | x_b - pad_left > size(img_b_dist,2));
     % rgb channels
