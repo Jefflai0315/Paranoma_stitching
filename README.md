@@ -85,4 +85,4 @@ ___
 ___
 4. Set4
 ___
-![](https://github.com/Jefflai0315/Paranoma_stitching/blob/main/Images/set4.jpg)
+![](https://github.com/Jefflai0315/Paranoma_stitching/blob/main/Images/Set4.jpg)
