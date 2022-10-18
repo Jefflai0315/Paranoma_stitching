@@ -68,3 +68,13 @@ ___
 ## Step 7 : Panorama Stitching
 Using the above steps, I stitched 3 images together to create a panorama. The resulted image from Set2 is shown above.
 
+## Panorama Stitching with Cylinder Projection
+
+1. Set1
+![Set1]()
+2. Set2
+![Set2]()
+3. Set3
+![Set3]()
+4. Set4
+![Set4]()
