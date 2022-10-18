@@ -74,11 +74,15 @@ Using the above steps, I stitched 3 images together to create a panorama. The re
 1. Set1
 ___
 ![](https://github.com/Jefflai0315/Paranoma_stitching/blob/main/Images/set1.jpg)
+___
 2. Set2
 ___
 ![](https://github.com/Jefflai0315/Paranoma_stitching/blob/main/Images/set2.jpg)
+___
 3. Set3
 ___
-![](https://github.com/Jefflai0315/Paranoma_stitching/blob/main/Images/Set4.jpg)
+![](https://github.com/Jefflai0315/Paranoma_stitching/blob/main/Images/set3.jpg)
+___
 4. Set4
+___
 ![](https://github.com/Jefflai0315/Paranoma_stitching/blob/main/Images/set4.jpg)
