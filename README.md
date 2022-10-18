@@ -1,4 +1,5 @@
-# Panorama Stitching
+# Panorama Stitching 
+## example test without cylinder projection
 ![Paranoma Stitching](https://github.com/Jefflai0315/Paranoma_stitching/blob/main/Images/result.jpg)
 
 ## Step 0 : Load the images
@@ -71,10 +72,10 @@ Using the above steps, I stitched 3 images together to create a panorama. The re
 ## Panorama Stitching with Cylinder Projection
 
 1. Set1
-![Set1]()
+![Set1](https://github.com/Jefflai0315/Paranoma_stitching/blob/main/Images/set1.jpg)
 2. Set2
-![Set2]()
+![Set2](https://github.com/Jefflai0315/Paranoma_stitching/blob/main/Images/set2.jpg)
 3. Set3
-![Set3]()
+![Set3](https://github.com/Jefflai0315/Paranoma_stitching/blob/main/Images/set3.jpg)
 4. Set4
-![Set4]()
+![Set4](https://github.com/Jefflai0315/Paranoma_stitching/blob/main/Images/set4.jpg)
