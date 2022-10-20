@@ -3,7 +3,7 @@ function [pano] = MyPanorama()
     %% YOUR CODE HERE.
     % Must load images from ../Images/Input/
     % input : dataset folder number
-    images = loadImages(2);
+    images = loadImages(1);
 
     %% Detect Corners: identify corner points in your images. 
     % initiate loop to stitch images starting from the middle image
@@ -35,6 +35,9 @@ function [pano] = MyPanorama()
         [i_x, i_y,rmax] = anms(corners_i, 500);
         [b_x, b_y,rmax] = anms(corners_b, 500);
 
+        %imshow(img_i); hold on;
+        %scatter(i_x,i_y,2)
+
         
         %% Extract features: use the feature description function to extract features from the images
         [i_descs] = feat_desc(img_i, i_x, i_y);
@@ -48,11 +51,13 @@ function [pano] = MyPanorama()
         matched_b_y = b_y(match(match ~=-1));
         matched_i_x= i_x(match~=-1);
         matched_i_y = i_y(match~=-1);
-       %hImage = showMatchedFeatures(img_i, img_b, [matched_i_x,matched_i_y], [matched_b_x,matched_b_y], 'montage')
+        %hImage = showMatchedFeatures(img_i, img_b, [matched_i_x,matched_i_y], [matched_b_x,matched_b_y], 'montage')
         
+        %imshow(img_i); hold on;
+        %scatter(matched_i_x,matched_i_y,2)
 
         %% Estimate Homographies: estimate homographies between images. 
-        [H,inliers_ind] = ransac_est_H(matched_i_x, matched_i_y, matched_b_x, matched_b_y,10);
+        [H,inliers_ind] = ransac_est_H(matched_i_x, matched_i_y, matched_b_x, matched_b_y,15);
         
         % show inliers and display the matched image points
         matched_b_x= matched_b_x(inliers_ind);
@@ -69,6 +74,7 @@ function [pano] = MyPanorama()
 
         %% Blend Images: blend images together to create a panorama.
         img_b = blend(img_i,img_b,H);
+        imshow(img_b)
 
 
         sign = mod((sign + 1),2);
