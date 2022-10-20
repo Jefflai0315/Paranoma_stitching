@@ -4,14 +4,16 @@ N = numel(x1);
 max_inliers = zeros(N, 1);
 H = eye(3);
 ssd = @(x, y) sum((x-y).^2);
-for t = 1:3000
+for t = 1:2500
 inliers = zeros(N, 1);
 r_idx = randi([1, N], 4, 1);
 H_t = est_homography(x2(r_idx),y2(r_idx),x1(r_idx),y1(r_idx));
 % (x2, y2, 1)^T ~ H (x1, y1, 1)^T
 for i = 1:N
     t_xy = H_t*[x1(i), y1(i), 1]';
+   
     t_xy = t_xy/t_xy(end);
+    
     
     if ssd([x2(i), y2(i), 1]', t_xy) < thresh
         inliers(i) = 1;

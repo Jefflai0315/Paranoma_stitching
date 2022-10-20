@@ -22,11 +22,11 @@ function [descs] = feat_desc(img, x, y)
     idx  = get_idx(xx(:), yy(:));
     feat = img(idx);
     feat = reshape(feat, [DESC_SIZE, DESC_SIZE]);
-    feat = imgaussfilt(feat, SIGMA);
-    % F = fspecial('disk',2);
+    %feat = imgaussfilt(feat, SIGMA);
+    % F = fspecial('gaussian',0.5);
     % feat = imfilter(feat,F,'replicate'); 
     feat = imresize(feat, [8, 8]);
-    % feat = feat(1:DESC_SIZE/8:DESC_SIZE, 1:DESC_SIZE/8:DESC_SIZE);
+    
     
     feat = double(feat);
     feat = (feat(:) - mean(feat(:)))/std(feat(:));

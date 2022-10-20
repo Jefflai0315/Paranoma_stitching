@@ -16,7 +16,7 @@ function [match] = feat_match(descs1, descs2)
     [idx D] = knnsearch(kdtree, desc', 'K', 2);
     nn_1 = descs2(:,idx(1));
     nn_2 = descs2(:,idx(2));
-    if sum((desc - nn_1).^2)/sum((desc - nn_2).^2) < 0.6
+    if sum((desc - nn_1).^2)/sum((desc - nn_2).^2) < 0.4
         match(i) = idx(1);
     else
         match(i) = -1;

@@ -1,5 +1,6 @@
 function [images] = loadImages(index)
     path = strcat('..\Images\Set', int2str(index) , '\');
+    %path = strcat('..\Images\TestSet', int2str(index) , '\');
     files = dir(path);
     files = files(1:end);
 
@@ -30,9 +31,8 @@ function [images] = loadImages(index)
         end
 
         im = imresize(im, [h,w]);
-        im = image2cylindrical(im, 500, 0.0, 1.0, 2.0);
-        images{cnt} = double(im)/255;
-        images{cnt} = double(im)/255;
+        im = cylindrical_project(double(im)/255,700);
+        images{cnt} = im;
         imshow(images{cnt});
         cnt = cnt + 1;
         end

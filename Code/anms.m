@@ -35,6 +35,7 @@ function [x, y, rmax] = anms(cimg, max_pts)
     end
     
     [x, y] = meshgrid(1:W, 1:H);
+  
     mat = [x(:) y(:) r_mat(:)];
     [~, idx] = sort(mat(:,3), 'descend');
     mat_sorted = mat(idx, :);
